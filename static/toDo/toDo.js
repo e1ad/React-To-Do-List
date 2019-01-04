@@ -43,7 +43,8 @@ class ToDo extends React.Component {
 
 
   @autobind
-  onSubmit() {
+  onSubmit(event) {
+    event.preventDefault()
     this.state.data.push({ "value": this.state.value, check: false });
     this.setState({ "data": this.state.data, "value": "" });
   }
@@ -61,7 +62,7 @@ class ToDo extends React.Component {
     return <form onSubmit={this.onSubmit}>
       <input type="checkbox" checked={this.state.allCheck} onChange={event => this.toggleAllCheck(event)} />
       <input type="text" value={this.state.value} onChange={event => this.setState({ "value": event.target.value })} />
-      <button className="btn btn-success">Add Task</button>
+      <button type="submit" className="btn btn-success">Add Task</button>
     </form>
   }
 
