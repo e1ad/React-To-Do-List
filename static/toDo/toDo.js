@@ -21,13 +21,17 @@ class ToDo extends React.Component {
 
   toggleCheck(item) {
     item.check = !item.check;
-    this.setState({ "data": this.state.data });
+    this.setState((state, props) => ({
+      data: this.state.data,
+    }));
   }
 
 
   deleteTask(index) {
     this.state.data.splice(index, 1);
-    this.setState({ "data": this.state.data });
+    this.setState((state, props) => ({
+      data: this.state.data,
+    }));
   }
 
 
@@ -45,16 +49,25 @@ class ToDo extends React.Component {
   @autobind
   onSubmit(event) {
     event.preventDefault()
-    this.state.data.push({ "value": this.state.value, check: false });
-    this.setState({ "data": this.state.data, "value": "" });
+    if (this.state.value) {
+      this.state.data.push({ "value": this.state.value, check: false });
+      this.setState((state, props) => ({
+        data: this.state.data,
+        value: ""
+      }));
+    }
   }
 
 
   toggleAllCheck(event) {
+    const { checked } = event.target
     this.state.data.forEach(item => {
-      item.check = event.target.checked;
+      item.check = checked;
     });
-    this.setState({ "data": this.state.data, "allCheck": event.target.checked });
+    this.setState((state, props) => ({
+      data: this.state.data,
+      allCheck: checked
+    }));
   }
 
 
@@ -72,8 +85,6 @@ class ToDo extends React.Component {
       <div className="comp to-do">
         {this.header()}
         <ul>{this.renderList()}</ul>
-
-
       </div>
     )
   }

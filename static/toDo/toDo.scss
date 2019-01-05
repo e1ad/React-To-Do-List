@@ -9,6 +9,12 @@ $borderRadius:2px;
     border:solid 1px $borderColor;
     border-radius: $borderRadius;
 
+    > form,
+    > ul > li {
+        display: flex;
+        align-items: center;
+    }
+
     > form{
 
         padding: 5px 0;
@@ -23,8 +29,7 @@ $borderRadius:2px;
     }
 
     input[type="checkbox"]{
-        margin-left: 15px;
-        margin-right: 20px; 
+        margin:0 20px 0 15px;
     }
 
     > ul{
