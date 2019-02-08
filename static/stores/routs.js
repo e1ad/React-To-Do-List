@@ -1,8 +1,8 @@
-import ToDo from './../toDo/toDo';
+import Home from './../home/home';
 
 export default [
     {
         path: '/',
-        component: ToDo
+        component: Home
     }
 ]
