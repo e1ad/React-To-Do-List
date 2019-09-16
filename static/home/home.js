@@ -1,4 +1,3 @@
-
 import React from 'react';
 import autobind from 'autobind-decorator';
 
@@ -6,7 +5,6 @@ import ToDo from './../toDo/toDo';
 
 
 class Home extends React.Component {
-
 
     constructor(props) {
         super();
@@ -29,6 +27,5 @@ class Home extends React.Component {
     }
 
 }
-
 
 export default Home;

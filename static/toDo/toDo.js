@@ -1,9 +1,8 @@
-
 import React from 'react';
 import autobind from 'autobind-decorator';
 
-
 import './toDo.scss';
+
 
 class ToDo extends React.Component {
 
@@ -39,8 +38,10 @@ class ToDo extends React.Component {
       return (
         <li key={index}>
           <input type="checkbox" checked={item.check} onChange={() => this.toggleCheck(index)} />
-          <span>{item.value}</span>
-          <button onClick={() => this.deleteTask(index)}>X</button>
+          <div className="task-body" title={item.value}>{item.value}</div>
+          <button className="remove-task-btn" onClick={() => this.deleteTask(index)}>
+            <span>X</span>
+          </button>
         </li>)
     });
   }
@@ -92,6 +93,5 @@ class ToDo extends React.Component {
     )
   }
 }
-
 
 export default ToDo;
