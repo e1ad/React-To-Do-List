@@ -1,60 +1,59 @@
-$borderColor:#eee;
-$borderRadius:2px;
+$border-color:#eee;
+$border-radius:2px;
+$max-width:520px;
 
 .comp.to-do{
-    max-width: 520px;
+    max-width: $max-width;
     margin:10px auto 0 auto;
-    border:solid 1px $borderColor;
-    border-radius: $borderRadius;
+    border:solid 1px $border-color;
+    border-radius: $border-radius;
 
-    form,
-    ul > li {
+    .to-do-form,
+    .task-item{
         display: flex;
         align-items: center;
     }
 
-    form{
+    .to-do-form{
         padding: 5px 0;
+    }
 
-        > input[type="text"]{
-            flex: 1;
-            text-indent: 5px;
-            border:solid 1px $borderColor;
-        }
 
-        button{
-            margin: 0 10px 0 15px;
-        }
-        
+    .new-task-input{
+        flex: 1;
+        text-indent: 5px;
+        border:solid 1px $border-color;
+    }
+
+    .new-task-btn{
+        margin: 0 10px 0 15px;
     }
 
     input[type="checkbox"]{
         margin:0 20px 0 15px;
+        cursor: pointer;
     }
 
     ul{
         margin: 0;
         padding: 0;
         list-style: none;
+    }
 
-        li{
+    .task-item{
+        padding: 10px 0;
 
-            padding: 10px 0;
+        &:nth-of-type(even){
+            background-color: #eee;
+        }
 
-            &:nth-of-type(even){
-                background-color: #eee;
-            }
+        > input[type="checkbox"]{
 
-            > input[type="checkbox"]{
-    
-                &:checked + div{
-                    text-decoration: line-through;
-                }
-
+            &:checked + div{
+                text-decoration: line-through;
             }
 
         }
-
     }
 
     .task-body{
@@ -65,7 +64,7 @@ $borderRadius:2px;
 
     .remove-task-btn{
         background-color: white;
-        border: solid 1px $borderColor;
+        border: solid 1px $border-color;
         color:gray;
         border-radius: 50%;
         outline: none;
